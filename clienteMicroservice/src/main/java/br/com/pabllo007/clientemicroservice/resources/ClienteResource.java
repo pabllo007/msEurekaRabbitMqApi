@@ -40,6 +40,16 @@ public class ClienteResource {
         return ResponseEntity.ok(clienteDto);
     }
 
+    @GetMapping("/{id}")
+    ResponseEntity<ClienteDto> getCliente(@PathVariable("id") Long id) {
+        var cliente = clienteService.findById(id);
+        if (cliente.isEmpty()) {
+            return ResponseEntity.notFound().build();
+        }
+        ClienteDto clienteDto = clienteMapper.toDto(cliente.get());
+        return ResponseEntity.ok(clienteDto);
+    }
+
 
     @PostMapping
     public ResponseEntity save(@RequestBody ClienteSaveDto clienteSaveDto) {
