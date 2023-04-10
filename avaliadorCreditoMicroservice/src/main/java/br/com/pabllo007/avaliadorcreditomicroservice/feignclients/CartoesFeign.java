@@ -1,6 +1,7 @@
 package br.com.pabllo007.avaliadorcreditomicroservice.feignclients;
 
 import br.com.pabllo007.avaliadorcreditomicroservice.dto.CartaoClienteDto;
+import br.com.pabllo007.avaliadorcreditomicroservice.dto.CartaoDto;
 import br.com.pabllo007.avaliadorcreditomicroservice.dto.DadosClienteDto;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.http.ResponseEntity;
@@ -15,4 +16,6 @@ public interface CartoesFeign {
     @GetMapping(params = "cpf")
     ResponseEntity<List<CartaoClienteDto>> getCartoesByCliente(@RequestParam("cpf") String cpf);
 
+    @GetMapping(params = "renda")
+    ResponseEntity<List<CartaoDto>> getCartoesRendaAteh(@RequestParam("renda") Long renda);
 }
