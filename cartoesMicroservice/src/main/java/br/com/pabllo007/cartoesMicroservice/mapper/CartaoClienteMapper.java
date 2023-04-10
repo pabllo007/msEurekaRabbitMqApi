@@ -1,7 +1,7 @@
 package br.com.pabllo007.cartoesMicroservice.mapper;
 
+import br.com.pabllo007.cartoesMicroservice.dto.CartaoClienteDto;
 import br.com.pabllo007.cartoesMicroservice.entities.CartaoCliente;
-import br.com.pabllo007.mscartoes.dto.CartaoClienteDto;
 import org.springframework.stereotype.Component;
 
 import java.util.List;

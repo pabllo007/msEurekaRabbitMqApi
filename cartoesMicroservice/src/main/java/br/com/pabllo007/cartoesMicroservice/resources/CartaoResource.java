@@ -1,5 +1,6 @@
 package br.com.pabllo007.cartoesMicroservice.resources;
 
+import br.com.pabllo007.cartoesMicroservice.dto.CartaoClienteDto;
 import br.com.pabllo007.cartoesMicroservice.dto.CartaoDto;
 import br.com.pabllo007.cartoesMicroservice.dto.CartaoSaveDto;
 import br.com.pabllo007.cartoesMicroservice.entities.Cartao;
@@ -8,7 +9,6 @@ import br.com.pabllo007.cartoesMicroservice.mapper.CartaoClienteMapper;
 import br.com.pabllo007.cartoesMicroservice.mapper.CartaoMapper;
 import br.com.pabllo007.cartoesMicroservice.services.CartaoService;
 import br.com.pabllo007.cartoesMicroservice.services.ClienteCartaoService;
-import br.com.pabllo007.mscartoes.dto.CartaoClienteDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

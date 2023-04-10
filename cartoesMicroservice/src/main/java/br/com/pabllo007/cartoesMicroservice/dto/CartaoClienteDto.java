@@ -1,4 +1,4 @@
-package br.com.pabllo007.mscartoes.dto;
+package br.com.pabllo007.cartoesMicroservice.dto;
 
 import br.com.pabllo007.cartoesMicroservice.entities.Cartao;
 import lombok.AllArgsConstructor;
