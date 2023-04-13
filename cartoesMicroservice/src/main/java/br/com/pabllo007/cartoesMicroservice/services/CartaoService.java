@@ -1,7 +1,7 @@
 package br.com.pabllo007.cartoesMicroservice.services;
 
 import br.com.pabllo007.cartoesMicroservice.entities.Cartao;
-import br.com.pabllo007.cartoesMicroservice.repositories.CartaRepository;
+import br.com.pabllo007.cartoesMicroservice.repositories.CartaoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -13,7 +13,7 @@ import java.util.List;
 public class CartaoService {
 
     @Autowired
-    private CartaRepository cartaRepository;
+    private CartaoRepository cartaRepository;
 
     @Transactional
     public Cartao save(Cartao cartao) {

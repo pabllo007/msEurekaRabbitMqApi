@@ -1,10 +1,9 @@
 package br.com.pabllo007.avaliadorcreditomicroservice.resources;
 
-import br.com.pabllo007.avaliadorcreditomicroservice.dto.DadosAvaliacaoDto;
-import br.com.pabllo007.avaliadorcreditomicroservice.dto.RetornoAvaliacaoClienteDto;
-import br.com.pabllo007.avaliadorcreditomicroservice.dto.SituacaoClienteDto;
+import br.com.pabllo007.avaliadorcreditomicroservice.dto.*;
 import br.com.pabllo007.avaliadorcreditomicroservice.exception.DadosClienteNotFoundException;
 import br.com.pabllo007.avaliadorcreditomicroservice.exception.ErroComunicacaoMicroserviceException;
+import br.com.pabllo007.avaliadorcreditomicroservice.exception.ErroSolicitacaoCartaoException;
 import br.com.pabllo007.avaliadorcreditomicroservice.services.AvaliadorCreditoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -47,4 +46,14 @@ public class AvaliadorCreditoResource {
         }
     }
 
+    @PostMapping("solicitacoes-cartao")
+    public ResponseEntity solicitarCartao(@RequestBody DadosSolicitacaoEmissaoCartao dados) {
+        try {
+            ProtocoloSolicitacaoCartao protocoloSolicitacaoCartao = avaliadorCreditoService
+                    .solicitarEmissaoCartao(dados);
+            return ResponseEntity.ok(protocoloSolicitacaoCartao);
+        } catch (ErroSolicitacaoCartaoException e) {
+            return ResponseEntity.internalServerError().body(e.getMessage());
+        }
+    }
 }

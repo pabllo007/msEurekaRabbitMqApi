@@ -1,6 +1,17 @@
 spring:
   application:
     name: mscartoes
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+  listener:
+    simple:
+      auto-startup: true
+mq:
+  queues:
+    emissao-cartoes: emissao-cartoes
 
 server:
   port: 0
