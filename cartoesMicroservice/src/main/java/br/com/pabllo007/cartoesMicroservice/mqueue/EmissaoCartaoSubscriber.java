@@ -7,12 +7,14 @@ import br.com.pabllo007.cartoesMicroservice.repositories.CartaoRepository;
 import br.com.pabllo007.cartoesMicroservice.repositories.ClienteCartaoRepository;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.messaging.handler.annotation.Payload;
 import org.springframework.stereotype.Component;
 
 @Component
+@Slf4j
 public class EmissaoCartaoSubscriber {
 
     @Autowired
@@ -35,7 +37,8 @@ public class EmissaoCartaoSubscriber {
             clienteCartaoRepository.save(cartaoCliente);
 
 
-        } catch (JsonProcessingException e) {
+        } catch (Exception e) {
+            log.error("Erro ao receber a solicitação de emissão do cartão: {}", e.getMessage());
             throw new RuntimeException(e);
         }
 
